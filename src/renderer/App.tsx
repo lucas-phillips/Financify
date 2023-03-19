@@ -1,6 +1,8 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import icon from '../../assets/icon.svg';
 import './App.css';
+import 'tailwindcss/tailwind.css';
 
 function Hello() {
   return (
@@ -15,7 +17,7 @@ function Hello() {
           target="_blank"
           rel="noreferrer"
         >
-          <button type="button">
+          <button type="button" className="to-blue-400 m-4">
             <span role="img" aria-label="books">
               📚
             </span>
@@ -31,8 +33,9 @@ function Hello() {
             <span role="img" aria-label="folded hands">
               🙏
             </span>
-            Donate
+            <span className="font-bold">Donate</span>
           </button>
+          <Button variant="contained">Great!</Button>
         </a>
       </div>
     </div>

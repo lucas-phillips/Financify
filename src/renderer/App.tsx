@@ -1,53 +1,29 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import icon from '../../assets/icon.svg';
-import './App.css';
 import 'tailwindcss/tailwind.css';
-
-function Hello() {
-  return (
-    <div>
-      <div className="Hello">
-        <img width="200" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button" className="to-blue-400 m-4">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="folded hands">
-              🙏
-            </span>
-            <span className="font-bold">Donate</span>
-          </button>
-          <Button variant="contained">Great!</Button>
-        </a>
-      </div>
-    </div>
-  );
-}
+import Sidebar from './components/sidebar/sidebar';
+import Home from './components/home/home';
+import Bills from './components/bills/bills';
 
 export default function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Hello />} />
-      </Routes>
+      <div className="h-screen bg-slate-800 text-neutral-200">
+        <div className="grid grid-cols-[4rem_auto]">
+          <div>
+            <div className="h-screen">
+              <Sidebar />
+            </div>
+          </div>
+          <div>
+            <div className="border-slate-900 border-[10px] h-screen px-4 py-2">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="bills" element={<Bills />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      </div>
     </Router>
   );
 }
